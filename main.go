@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"flag"
 	"io"
 	"log"
@@ -9,6 +10,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("method: ", r.Method, "url: ", r.URL)
 	r.Write(w)
 	io.Copy(w, r.Body)
 }
