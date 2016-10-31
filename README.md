@@ -2,9 +2,10 @@
 
 Simple Golang HTTP Server which dumps the incoming client headers and body
 
-## build
+## Build
 * docker: `docker build -t httpdump .`
 * `go build main.go -o httpdump`
 
-## run
-* `--port`: default port is 8080.
+## Run
+* `--host`: default host is `0.0.0.0`.
+* `--port`: default port is `2222`.
