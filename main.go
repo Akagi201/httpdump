@@ -47,7 +47,7 @@ func main() {
 
 	log.SetFormatter(&log.TextFormatter{
 		FullTimestamp:   true,
-		TimestampFormat: "2006-01-0¬2 15:04:05",
+		TimestampFormat: "2006-01-02 15:04:05",
 	})
 
 	logger := log.New()
@@ -61,7 +61,7 @@ func main() {
 	root.Use(handleCORS)
 	root.Use(recovery)
 
-	root.Post("/", http.HandlerFunc(handler))
+	root.HandleAll("/*path", http.HandlerFunc(handler))
 
 	log.Infof("httpdump listening at: %v", opts.ListenAddr)
 	http.ListenAndServe(opts.ListenAddr, root)
